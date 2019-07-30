@@ -149,7 +149,7 @@ class RandomHashField(fields.CharField):
         self.hash_length = hash_length
         super(fields.CharField, self).__init__(
             max_length=128, unique=True, blank=False, null=False, db_index=True,
-            default=md5_hash(max_length=self.hash_length))
+            default=md5_hash)
 
     def pre_save(self, model_instance, add):
         if not add and not self.update_on_save:
